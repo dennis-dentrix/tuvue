@@ -1,5 +1,3 @@
-import { Search } from "react-bootstrap-icons";
-
 function SearchOrder({ placeholder, type }) {
   const base =
     " rounded-md px-4 py-2 sm:text-base text-sm transition-all duration-300 placeholder:text-black focus:outline-none focus:ring focus:ring-black focus:ring-opacity-10 sm:block";

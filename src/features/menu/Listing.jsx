@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-
-import { Button } from "../../ui/Button";
-import { ChevronDown, ArrowLeft } from "react-bootstrap-icons";
+import { ArrowLeft } from "react-bootstrap-icons";
 import ItemCard from "./ItemCard";
 import { Filter } from "./Filter";
 
@@ -38,7 +36,7 @@ function Listing() {
           </div> */}
         </div>
 
-        <div className="flex flex-wrap gap-3 sm:place-content-center my-4">
+        <div className="flex flex-wrap gap-5 justify-around sm:justify-center place-content-center my-4">
           <ItemCard />
           <ItemCard />
           <ItemCard />
