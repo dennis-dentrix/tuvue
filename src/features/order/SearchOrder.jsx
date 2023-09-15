@@ -9,7 +9,7 @@ function SearchOrder({ placeholder, type }) {
       base + " w-40 focus:w-60 sm:w-52 sm:focus:w-60 border border-green mt-3",
   };
   return (
-    <form>
+    <form className="flex items-center">
       <input placeholder={placeholder} className={style[type]} />
       {/* <Search className="sm:hidden text-green text-lg" /> */}
     </form>

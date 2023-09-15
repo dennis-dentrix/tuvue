@@ -27,7 +27,9 @@ function ItemCard() {
       </div>
 
       <div className="space-y-3  top-0">
-        <h2 className="text-black font-semibold text-md">Tilapia</h2>
+        <h2 className="text-black font-semibold text-md tracking-wider">
+          Tilapia
+        </h2>
 
         <div className="flex items-center gap-3 mb-3">
           <Button type="secondary">

@@ -21,6 +21,7 @@ export const StarRating = ({
 }) => {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
+  const [disable, setDisable] = useState(false);
 
   function handleRate(rating) {
     setRating(rating);
@@ -31,7 +32,7 @@ export const StarRating = ({
     lineHeight: "1",
     margin: "0",
     color,
-    fontSize: `${size / 2.1}px`,
+    fontSize: `${size / 2.5}px`,
   };
 
   return (
@@ -49,7 +50,9 @@ export const StarRating = ({
           />
         ))}
       </div>
-      <p style={textStyle}>{tempRating || rating || ""}</p>
+      <p style={textStyle}>
+        {tempRating || rating || ""} / {maxRating}
+      </p>
     </div>
   );
 };

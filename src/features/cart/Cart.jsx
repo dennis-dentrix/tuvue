@@ -11,7 +11,9 @@ function Cart() {
           onClick={() => navigate(-1)}
           className="text-green text-lg font-bold"
         />{" "}
-        <span className="text-black font-semibold text-xl">Cart</span>
+        <span className="text-black font-semibold text-xl tracking-widest">
+          Cart
+        </span>
       </h1>
     </div>
   );
