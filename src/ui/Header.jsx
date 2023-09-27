@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import SearchOrder from "../features/order/SearchOrder";
 import { Button as Mybutton } from "./Button";
@@ -21,31 +21,31 @@ import {
   MenuItem,
   ListItemIcon,
   Divider,
-  IconButton,
-  Typography,
 } from "@mui/material";
 
-// import { Tooltip, Settings } from "@mui/material";
-
-// import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-
 function Header() {
+  const navigate = useNavigate();
   return (
-    <header className="flex max-w-full justify-between items-center py-3 sticky  bg-grey w-full ">
+    <header className="bg-white flex max-w-full justify-between items-center py-3 sticky  w-full ">
       <div className="flex items-center justify-between  gap-3 sm:gap-6 max-w-full">
-        <Link to="/" className="text-md text-green font-bold space-x-2">
-          🦈
-          <span className="text-lg uppercase">Tuvue</span>
-        </Link>
+        <div className=" flex items-baseline gap-3 flex-row-reverse sm:flex-row">
+          <Link
+            to="/"
+            className="text-md text-green font-bold space-x-2 flex items-center"
+          >
+            🦈
+            <span className="text-lg uppercase">Tuvue</span>
+          </Link>
 
-        <SearchOrder placeholder="search..." type="primary" />
+          <div className="hidden sm:block">
+            <SearchOrder placeholder="search..." type="primary" />
+          </div>
 
-        {/* SHOULD THIS BE A BUTTON?? iNTENTION IS TO MAKE A DROPDOWN MENU */}
-        {/* <button className="md:flex md:text-lg items-center gap-2 text-md hidden">
+          {/* SHOULD THIS BE A BUTTON?? iNTENTION IS TO MAKE A DROPDOWN MENU */}
+          {/* <button className="md:flex md:text-lg items-center gap-2 text-md hidden">
           <List className="text-green text-sm sm:text-lg " />
           Categories
         </button> */}
-        <div className="">
           <Category />
         </div>
       </div>
@@ -67,7 +67,7 @@ function Header() {
           </p> */}
         </div>
 
-        <div>
+        <div onClick={() => navigate("/profile/cart")}>
           <Basket2 className="text-green text-lg sm:hidden" />
 
           <p className="bg-white p-2 rounded-md sm:flex items-center gap-2 hidden">

@@ -10,7 +10,9 @@ function Button({ children, type, nav }) {
     secondary:
       base +
       "px-2 py-1 text-black text-sm flex items-center gap-1 border border-black rounded-sm hover:text-green hover:text-sm",
-    tert: base + "text-grey text-sm border border-green px-2 py-1",
+    tert:
+      base +
+      "text-grey text-sm border border-maroon rounded-md tracking-wider px-2 py-1 bg-maroon",
   };
 
   return (

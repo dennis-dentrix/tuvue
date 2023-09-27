@@ -13,9 +13,13 @@ export function Reviews() {
           {/* <p className="text-lg text-black">5/5</p> */}
         </div>
       </div>
-      <UserReview />
-      <UserReview />
-      {/* <UserReview /> */}
+
+      <div className="overflow-scroll h-[25rem]">
+        <UserReview />
+        <UserReview />
+        <UserReview />
+        <UserReview />
+      </div>
 
       <form className="space-y-6">
         <div className="flex flex-col gap-3 ">

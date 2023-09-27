@@ -13,7 +13,7 @@ function Cta() {
 
         <div className="flex  flex-col-reverse gap-8 sm:flex-row items-center justify-between">
           <Button type="primary">Shop now</Button>
-          <SearchOrder placeholder="Fish for something" type="secondary" />
+          <SearchOrder placeholder="Fish for something..." type="secondary" />
         </div>
       </div>
 

@@ -1,20 +1,31 @@
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "react-bootstrap-icons";
+import { Button } from "../../ui/Button";
+import { CartItem } from "./CartItem";
 
 function Cart() {
-  const navigate = useNavigate();
-
   return (
     <div>
-      <h1 className="flex items-center gap-3">
-        <ArrowLeft
-          onClick={() => navigate(-1)}
-          className="text-green text-lg font-bold"
-        />{" "}
-        <span className="text-black font-semibold text-xl tracking-widest">
-          Cart
-        </span>
-      </h1>
+      <div className="flex flex-col gap-3 mx-3 ">
+        <CartItem />
+        <CartItem />
+        <CartItem />
+        <CartItem />
+        <CartItem />
+
+        <div className="flex justify-between items-end gap-4 bg-maroon rounded-sm text-white px-4 py-6">
+          <div>
+            <h3 className="text-lg ">Buy</h3>
+            <p className="text-black font-semibold">
+              Total:{" "}
+              <span className="text-grey font-bold tracking-wide">
+                kes 5000
+              </span>
+            </p>
+          </div>
+          <div className=" ">
+            <Button type="primary">Proceed to Checkout</Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

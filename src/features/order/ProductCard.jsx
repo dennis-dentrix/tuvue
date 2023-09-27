@@ -6,7 +6,7 @@ import { Reviews } from "./Reviews";
 function ProductCard() {
   const navigate = useNavigate();
   return (
-    <div className="sm:h-screen w-full sm:grid sm:grid-cols-2 gap-8 justify-between">
+    <div className="sm:h-full w-full sm:grid sm:grid-cols-2 gap-8 justify-between">
       <div className="sm:flex flex-col mb-8">
         {/* PRODUCT NAME */}
         <h1 className="flex items-center gap-3 mb-4">
@@ -69,7 +69,7 @@ function ProductCard() {
           </p>
 
           {/* IF THE SELLER DELIVERS THEN INDICATE AVAILABLE IF NOT THE INDICATE UNAVAILABLE. iF AVAILABLE ONCLICK WILL SHOW HOW MANY DAYS IT WILL TAKE TO DELIVER */}
-          <p className="text-sm text-green font-medium">Delivary Available</p>
+          <p className="text-sm text-green font-medium">Delivery Available</p>
         </div>
 
         {/* SELLER */}

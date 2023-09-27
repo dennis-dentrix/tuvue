@@ -4,10 +4,10 @@ import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 function AppLayout() {
   return (
-    <div className="bg-grey px-4 cursor-default overflow-hidden ">
+    <div className=" px-4 cursor-default h-screen">
       <Header />
 
-      <main className="">
+      <main>
         {/* <Menu /> */}
         <Outlet />
       </main>

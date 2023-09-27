@@ -36,7 +36,7 @@ function Listing() {
           </div> */}
         </div>
 
-        <div className="flex flex-wrap gap-5 justify-around sm:justify-center place-content-center my-4">
+        <div className="flex flex-wrap gap-2 justify-around sm:justify-center sm:gap-5 place-content-center my-4">
           <ItemCard />
           <ItemCard />
           <ItemCard />
