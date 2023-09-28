@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Check2Circle, DatabaseX } from "react-bootstrap-icons";
+import { ArrowLeft, Check2Circle } from "react-bootstrap-icons";
 import { Button } from "../../ui/Button";
 import { Reviews } from "./Reviews";
 
@@ -20,7 +20,7 @@ function ProductCard() {
         </h1>
 
         {/* PRODUCT IMAGE */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 my-8">
           <img
             src="/fish-1.jpg"
             alt=""

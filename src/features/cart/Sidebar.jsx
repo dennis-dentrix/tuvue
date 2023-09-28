@@ -17,13 +17,13 @@ function Sidebar() {
 
         <div className="flex flex-col bg-white px-3 py-2 rounded-sm">
           <NavLink
-            to="/profile/cart"
+            to="/cart"
             className="text-black tracking-wide cursor-pointer"
           >
             Cart
           </NavLink>
           <NavLink
-            to="/profile/orders"
+            to="/orders"
             className="text-black tracking-wide cursor-pointer"
           >
             Orders
@@ -32,14 +32,14 @@ function Sidebar() {
 
         <div className="flex flex-col bg-white px-3 py-2 rounded-sm">
           <NavLink
-            to="/profile/notifications"
+            to="/notifications"
             className="text-black tracking-wide cursor-pointer"
           >
             Notifications
           </NavLink>
 
           <NavLink
-            to="/profile/Favourites"
+            to="/favourites"
             className="text-black tracking-wide cursor-pointer"
           >
             favourites

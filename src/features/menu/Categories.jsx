@@ -18,7 +18,6 @@ function Common() {
           <ChevronRight className="text-green" />
         </Link>
       </div>
-
       <Items />
     </div>
   );

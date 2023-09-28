@@ -26,7 +26,7 @@ import {
 function Header() {
   const navigate = useNavigate();
   return (
-    <header className="bg-white flex max-w-full justify-between items-center py-3 sticky  w-full ">
+    <header className="bg-white flex max-w-full justify-between items-center py-3 sticky px-8  w-full ">
       <div className="flex items-center justify-between  gap-3 sm:gap-6 max-w-full">
         <div className=" flex items-baseline gap-3 flex-row-reverse sm:flex-row">
           <Link
@@ -67,7 +67,7 @@ function Header() {
           </p> */}
         </div>
 
-        <div onClick={() => navigate("/profile/cart")}>
+        <div onClick={() => navigate("/cart")}>
           <Basket2 className="text-green text-lg sm:hidden" />
 
           <p className="bg-white p-2 rounded-md sm:flex items-center gap-2 hidden">

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-function Button({ children, type, nav }) {
+function Button({ children, type, nav, inStock }) {
   const navigate = useNavigate();
 
   const base =
@@ -17,6 +17,7 @@ function Button({ children, type, nav }) {
 
   return (
     <button
+      disabled={!inStock}
       className={styles[type]}
       onClick={(e) => {
         e.preventDefault();

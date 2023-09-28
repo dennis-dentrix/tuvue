@@ -1,11 +1,12 @@
 import { Common, Aquarium } from "./Categories";
 import Cta from "../../ui/Cta";
+
 function Menu() {
   return (
     <div className="h-full">
       <div>
-        <Cta />
         <Common />
+
         <Aquarium />
 
         <Common />

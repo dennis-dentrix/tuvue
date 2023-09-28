@@ -3,7 +3,7 @@ import img from "/fish-4.jpg";
 
 export function CartItem() {
   return (
-    <div className="flex gap-4 bg-white rounded-md  px-4 py-2 shadow-green shadow-md ">
+    <div className="flex gap-4 bg-white rounded-md  px-4 py-2 shadow-green shadow-md sm:hover:scale-[1.03] hover:shadow-orange transition-all duration-300">
       <img src={img} alt="" className="w-24 rounded-md" />
 
       <div className="flex flex-col gap-2 w-full">
