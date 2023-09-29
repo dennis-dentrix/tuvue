@@ -13,7 +13,7 @@ function ItemCard({ post }) {
     >
       <div className="flex items-center justify-between">
         <img
-          src=""
+          src={post.image}
           alt=""
           className="rounded-full w-14 h-14 ring  ring-green absolute left-3 bottom-32"
         />

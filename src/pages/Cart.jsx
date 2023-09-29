@@ -1,9 +1,9 @@
-import { Button } from "../../ui/Button";
-import { CartItem } from "./CartItem";
+import { Button } from "../ui/Button";
+import { CartItem } from "../features/cart/CartItem";
 
 function Cart() {
   return (
-    <div>
+    <>
       <div className="flex flex-col gap-3 mx-3 ">
         <CartItem />
         <CartItem />
@@ -26,7 +26,7 @@ function Cart() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -49,6 +49,7 @@ function Listing() {
           <ItemCard />
           <ItemCard />
           <ItemCard />
+          <ItemCard />
         </div>
       </div>
     </div>

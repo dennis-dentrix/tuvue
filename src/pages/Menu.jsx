@@ -1,17 +1,20 @@
-import { Common, Aquarium } from "./Categories";
-import Cta from "../../ui/Cta";
+import { Common, Aquarium } from "../features/menu/Categories";
+import Cta from "../ui/Cta";
 
 function Menu() {
   return (
-    <div className="h-full">
-      <div>
-        <Common />
+    <>
+      <div className="h-full">
+        <div>
+          <Cta />
+          <Common />
 
-        <Aquarium />
+          <Aquarium />
 
-        <Common />
+          <Common />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,17 +1,19 @@
-import { Button } from "../../ui/Button";
+import { Button } from "../ui/Button";
 import { Fire } from "react-bootstrap-icons";
 
 function Order() {
   return (
-    <div className=" px-3 py-2 h-full">
-      {/* IF THERE ARE NO ORDERS PLACED THE DISPLAY THE nO ORDERS COMPONNTS INSTEAD OF THE ORDER CARDS */}
-      <div className="flex flex-wrap gap-3 ">
-        <OrderCard />
+    <>
+      <div className=" px-3 py-2 h-full">
+        {/* IF THERE ARE NO ORDERS PLACED THE DISPLAY THE nO ORDERS COMPONNTS INSTEAD OF THE ORDER CARDS */}
+        <div className="flex flex-wrap gap-3 ">
+          <OrderCard />
 
-        <OrderCard />
-        <OrderCard />
+          <OrderCard />
+          <OrderCard />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

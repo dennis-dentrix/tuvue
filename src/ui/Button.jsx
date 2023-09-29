@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
-function Button({ children, type, nav, inStock }) {
+import { Link, useNavigate } from "react-router-dom";
+function Button({ children, type, to, nav, inStock }) {
   const navigate = useNavigate();
 
   const base =
@@ -14,6 +14,13 @@ function Button({ children, type, nav, inStock }) {
       base +
       "text-grey text-sm border border-maroon rounded-md tracking-wider px-2 py-1 bg-maroon",
   };
+
+  if (to)
+    return (
+      <Link to={to} className={styles[type]}>
+        {children}
+      </Link>
+    );
 
   return (
     <button

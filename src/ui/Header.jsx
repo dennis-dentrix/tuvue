@@ -52,7 +52,9 @@ function Header() {
 
       <div className="flex items-center justify-between  space-x-6 max-w-full">
         <div className="hidden sm:inline-block">
-          <Mybutton type="primary">Sale</Mybutton>
+          <Mybutton type="primary" to="selling">
+            Sale
+          </Mybutton>
         </div>
 
         <div>
