@@ -12,6 +12,7 @@ import CartLayout from "./features/cart/CartLayout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Post from "./pages/Post";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,6 +46,27 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+
+      <Toaster
+        position="bottom-left"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 12px",
+            backgroundColor: "var(--color-grey)",
+            color: "var(--color-black)",
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }

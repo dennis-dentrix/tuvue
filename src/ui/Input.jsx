@@ -1,14 +1,20 @@
-function Input({ placeholder, type, name, value, onChange }) {
+import Error from "./Error";
+
+function InputField({ error, label, children }) {
   return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      name={name}
-      value={value}
-      onChange={onChange}
-      className="px-3 py-1 bg-grey font-family-inherit tracking-wider text-sm placeholder:text-green placeholder:text-sm rounded-md focus:outline-none focus:ring-1 focus:ring-green focus:scale-[1.01] transition-all duration-500 w-full sm:w-1/2"
-    />
+    <div className="flex flex-col items-start w-full gap-2">
+      {label && (
+        <label
+          className="font-medium tracking-wider"
+          htmlFor={children.props.id}
+        >
+          {label}
+        </label>
+      )}
+      {children}
+      {error && <Error>{error}</Error>}
+    </div>
   );
 }
 
-export default Input;
+export default InputField;

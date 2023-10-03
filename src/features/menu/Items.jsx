@@ -1,6 +1,6 @@
 import ItemCard from "./ItemCard";
 import { useQuery } from "@tanstack/react-query";
-import { getPosts } from "../../services/apiFish";
+import { getPosts } from "../../services/postApi";
 import Loader from "../../ui/Loader";
 
 function Items() {
