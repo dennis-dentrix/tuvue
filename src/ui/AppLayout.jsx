@@ -7,7 +7,7 @@ function AppLayout() {
     <div className=" cursor-default h-screen">
       <Header />
 
-      <main className="px-8 py-12">
+      <main className="">
         <Outlet />
       </main>
 

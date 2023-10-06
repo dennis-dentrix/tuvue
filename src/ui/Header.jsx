@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import SearchOrder from "../features/order/SearchOrder";
 import { Button as Mybutton } from "./Button";
@@ -24,7 +24,6 @@ import {
 } from "@mui/material";
 
 function Header() {
-  const navigate = useNavigate();
   return (
     <header className="bg-white flex max-w-full justify-between items-center py-3 sticky px-8  w-full ">
       <div className="flex items-center justify-between  gap-3 sm:gap-6 max-w-full">
@@ -50,26 +49,21 @@ function Header() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between  space-x-6 max-w-full">
-        <div className="hidden sm:inline-block">
+      <nav className="flex items-center justify-between  space-x-6 max-w-full">
+        <NavLink className="hidden sm:inline-block">
           <Mybutton type="primary" to="selling">
             Sale
           </Mybutton>
-        </div>
+        </NavLink>
 
-        <div>
-          <div>
-            <AccountMenu />
-          </div>
-          {/* <p className=" bg-white p-2 rounded-md sm:flex sm:items-center sm:gap-2 hidden">
-            <span className="text-sm md:text-base text-black font-semibold">
-              Denis
-            </span>
-            <ChevronDown className="text-green md:text-base" />
-          </p> */}
-        </div>
+        <NavLink
+          to="/myads"
+          className="text-sm md:text-base text-black font-semibold border border-green px-2 py-1 rounded-md"
+        >
+          My Ads
+        </NavLink>
 
-        <div onClick={() => navigate("/cart")}>
+        <NavLink to="/cart">
           <Basket2 className="text-green text-lg sm:hidden" />
 
           <p className="bg-white p-2 rounded-md sm:flex items-center gap-2 hidden">
@@ -78,8 +72,12 @@ function Header() {
               Cart: 4
             </span>
           </p>
-        </div>
-      </div>
+        </NavLink>
+
+        <NavLink>
+          <AccountMenu />
+        </NavLink>
+      </nav>
     </header>
   );
 }

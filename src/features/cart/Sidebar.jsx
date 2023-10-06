@@ -1,18 +1,18 @@
-import { Avatar } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { ChevronLeft } from "react-bootstrap-icons";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Sidebar() {
+  const navigate = useNavigate();
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <div className="w-full flex flex-col gap-3 shadow-green shadow-md ">
-        <div className="flex flex-col items-center gap-2 bg-white px-3 py-2 rounded-sm">
-          <div className="absolute translate-y-[-2rem]">
-            <Avatar sx={{ width: "3rem", height: "3rem" }} />
+        <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-sm">
+          <div onClick={() => navigate(-1)}>
+            {" "}
+            <ChevronLeft />{" "}
           </div>
 
-          <p className="text-green font-bold mt-[1.5rem] tracking-wide">
-            Dennis Kyusya
-          </p>
+          <p className="text-green font-bold tracking-wide">Cart</p>
         </div>
 
         <div className="flex flex-col bg-white px-3 py-2 rounded-sm">

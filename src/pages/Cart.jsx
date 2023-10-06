@@ -1,15 +1,14 @@
 import { Button } from "../ui/Button";
 import { CartItem } from "../features/cart/CartItem";
+import { cartData } from "../../data/cart";
 
 function Cart() {
   return (
-    <>
+    <div className="px4 py-2">
       <div className="flex flex-col gap-3 mx-3 ">
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
+        {cartData.map((cart) => {
+          return <CartItem key={cart.id} cart={cart} />;
+        })}
 
         <div className="flex justify-between items-end gap-4 bg-maroon rounded-sm text-white px-4 py-6">
           <div>
@@ -26,7 +25,7 @@ function Cart() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
