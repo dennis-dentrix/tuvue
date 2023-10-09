@@ -25,11 +25,23 @@ function AdsSidebar() {
           to="/myads/orders"
           className="text-black tracking-wide cursor-pointer"
         >
-          Orders
+          All Orders
+        </NavLink>
+        <NavLink
+          to="/myads/pending"
+          className="text-black tracking-wide cursor-pointer"
+        >
+          Pending Orders
+        </NavLink>
+        <NavLink
+          to="/myads/completed"
+          className="text-black tracking-wide cursor-pointer"
+        >
+          Completed Orders
         </NavLink>
       </div>
 
-      <div className="flex flex-col bg-white px-3 py-2 rounded-sm">
+      {/* <div className="flex flex-col bg-white px-3 py-2 rounded-sm">
         <NavLink
           to="/notifications"
           className="text-black tracking-wide cursor-pointer"
@@ -43,7 +55,7 @@ function AdsSidebar() {
         >
           favourites
         </NavLink>
-      </div>
+      </div> */}
     </div>
   );
 }
