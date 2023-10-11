@@ -4,9 +4,9 @@ export function CustomerOrders() {
   return (
     <div>
       <h1>All orders</h1>
-      <table className="table-fixed text-left border-collapse  w-full px-2">
+      <table className="table-fixed text-left border-collapse  w-full px-2 text-xs md:text-base">
         <thead>
-          <tr className="border border-black">
+          <tr className="border-b border-black gap-2">
             <th>Order by</th>
             <th>Fish type</th>
             <th>Weight</th>
@@ -33,8 +33,9 @@ export function CustomerOrders() {
               <td>
                 <input type="checkbox" checked={order.paid} name="paid" id="" />
               </td>
+
               <td>{order.dateOrdered}</td>
-              <td>{order.deliveredOn}</td>
+              <td>{order.deliveredOn ? order.deliveredOn : "_"}</td>
               <td>{order.delivered ? "Delivered" : "Processing"}</td>
             </tr>
           ))}

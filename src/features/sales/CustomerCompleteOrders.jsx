@@ -13,6 +13,7 @@ export function CustomerCompleteOrders() {
             <th>Location</th>
             <th>Price</th>
             <th>Paid</th>
+            <th>Transaction Code</th>
             <th>Order date</th>
             <th>Delivery date</th>
           </tr>
@@ -37,6 +38,7 @@ export function CustomerCompleteOrders() {
                         id=""
                       />
                     </td>
+                    <td className="">{order.transaction}</td>
                     <td>{order.dateOrdered}</td>
                     <td>{order.deliveredOn}</td>
                   </tr>
