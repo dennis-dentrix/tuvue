@@ -1,4 +1,4 @@
-import CartPages from "./CartPages";
+import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
 function CartLayout() {
@@ -10,7 +10,9 @@ function CartLayout() {
         </div>
 
         <div className="w-full sm:w-2/3">
-          <CartPages />
+          <div className="h-full w-full ">
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>

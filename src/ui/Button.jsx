@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-function Button({ children, type, to, nav, inStock }) {
+function Button({ children, type, to, nav, inStock, onClick }) {
   const navigate = useNavigate();
 
   const base =
@@ -23,14 +23,7 @@ function Button({ children, type, to, nav, inStock }) {
     );
 
   return (
-    <button
-      disabled={!inStock}
-      className={styles[type]}
-      onClick={(e) => {
-        e.preventDefault();
-        return navigate(nav);
-      }}
-    >
+    <button disabled={!inStock} className={styles[type]} onClick={onClick}>
       {children}
     </button>
   );

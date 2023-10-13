@@ -1,54 +1,63 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../ui/Button";
 import { Plus } from "react-bootstrap-icons";
+import { addItem, deleteItem, getCurrentQuantityById } from "../cart/Cartslice";
+import { useDispatch, useSelector } from "react-redux";
 
 function ItemCard({ post }) {
-  console.log(post.price);
-  const navigate = useNavigate();
+  const { id, name, weight, price, image, source } = post;
+  const dispatch = useDispatch();
+  const inCart = useSelector(getCurrentQuantityById(id));
+
+  function handleAddItem() {
+    const newItem = {
+      itemId: id,
+      name,
+      image,
+      source,
+      minWeight: weight,
+      unitPrice: price,
+      boughtWeight: weight,
+      totalPrice: price,
+    };
+    console.log(newItem);
+    dispatch(addItem(newItem));
+  }
 
   return (
-    <li
-      className="bg-white rounded-md w-[12rem] py-2  px-3 space-y-4 relative focus:ring focus:ring-offset-1 focus:ring-green"
-      onClick={() => navigate("/menu/product")}
-    >
-      <div className="flex items-center justify-between">
+    <li className="flex flex-col items-center justify-around gap-6 bg-white px-3 h-52 w-48 rounded-md">
+      <div className="flex flex-col items-center gap-4">
         <img
           src={post.image}
-          alt=""
-          className="rounded-full w-14 h-14 ring  ring-green absolute left-3 bottom-32"
+          alt={post.name}
+          className="w-20 h-20 mx-auto bg-blend-screen rounded-full"
         />
-
-        {/* <div className="flex flex-col space-y-2 relative left-16"> */}
-        <div className="flex flex-col space-y-4 translate-x-[4.5rem]">
-          <p className="text-green text-sm">4.9/5</p>
-          {post.inStock ? (
-            <p className="text-grey bg-green text-sm px-2 rounded-md skew-y-12">
-              On sale
-            </p>
-          ) : (
-            <p className="text-grey bg-maroon text-sm px-2 rounded-md skew-y-12">
-              Out of stock
-            </p>
-          )}
-        </div>
+        <h3>{post.name}</h3>
       </div>
 
-      <div className="space-y-3  top-0">
-        <h2 className="text-black font-semibold text-md tracking-wider">
-          fish
-        </h2>
+      <div className="flex items-center gap-2">
+        {inCart ? (
+          <button
+            className="inline-block font-semibold transition-colors duration-300 focus:outline-none focus:ring focus:ring-offset-1 focus:ring-maroon text-grey text-sm border border-maroon rounded-md tracking-wider px-2 py-1 bg-maroon "
+            onClick={() => dispatch(deleteItem(id))}
+          >
+            Delete
+          </button>
+        ) : (
+          <button
+            className="px-2 py-1 border border-black rounded-lg flex items-center"
+            onClick={handleAddItem}
+          >
+            Add
+            <span>
+              <Plus />
+            </span>
+          </button>
+        )}
 
-        <div className="flex items-center gap-3 mb-3">
-          <Button type="secondary" inStock={post.inStock}>
-            Add <Plus className="text-md" />
-          </Button>
-
-          <div>
-            <p className="text-black font-medium text-sm">kes.{post.price}</p>
-            <p className="text-green font-thin text-xs">
-              /{post.minWeight} grams
-            </p>
-          </div>
+        <div>
+          <p className="text-sm text-maroon">
+            kes.{price}/{weight}g
+          </p>
         </div>
       </div>
     </li>

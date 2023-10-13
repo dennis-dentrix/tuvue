@@ -1,8 +1,12 @@
 import { Button } from "../ui/Button";
 import { CartItem } from "../features/cart/CartItem";
-import { cartData } from "../../data/cart";
+import { useSelector } from "react-redux";
+import { getCart, getTotalCartPrice } from "../features/cart/Cartslice";
 
 function Cart() {
+  const cartData = useSelector(getCart);
+  console.log(cartData);
+  const totalPrice = useSelector(getTotalCartPrice);
   return (
     <div className="px4 py-2">
       <div className="flex flex-col gap-3 mx-3 ">
@@ -16,7 +20,7 @@ function Cart() {
             <p className="text-black font-semibold">
               Total:{" "}
               <span className="text-grey font-bold tracking-wide">
-                kes 5000
+                kes {totalPrice}
               </span>
             </p>
           </div>

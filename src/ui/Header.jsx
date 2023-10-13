@@ -1,7 +1,8 @@
-import { useNavigate, Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import SearchOrder from "../features/order/SearchOrder";
 import { Button as Mybutton } from "./Button";
+
 import {
   Basket2,
   ChevronDown,
@@ -22,6 +23,8 @@ import {
   ListItemIcon,
   Divider,
 } from "@mui/material";
+
+import CartOverview from "../features/cart/CartOverview";
 
 function Header() {
   return (
@@ -66,12 +69,14 @@ function Header() {
         <NavLink to="/cart">
           <Basket2 className="text-green text-lg sm:hidden" />
 
-          <p className="bg-white p-2 rounded-md sm:flex items-center gap-2 hidden">
+          <CartOverview />
+
+          {/* <p className="bg-white p-2 rounded-md sm:flex items-center gap-2 hidden">
             <Basket2 className="text-green md:text-base" />
             <span className="text-sm md:text-base text-black font-semibold">
-              Cart: 4
+              Cart: 1
             </span>
-          </p>
+          </p> */}
         </NavLink>
 
         <NavLink>
