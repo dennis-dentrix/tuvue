@@ -22,6 +22,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider } from "react-redux";
 import { store } from "./services/store";
+import Register from "./pages/Register";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +39,7 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
+            <Route path="/register" element={<Register />} />
             <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<AppLayout />}>
               <Route index element={<Navigate replace to="/menu" />} />

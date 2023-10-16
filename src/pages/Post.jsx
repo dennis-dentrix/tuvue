@@ -7,8 +7,10 @@ import { getFish } from "../services/fishApi";
 import Loader from "../ui/Loader";
 import Error from "../ui/Error";
 import InputField from "../ui/Input";
+import { useFormAction } from "react-router-dom";
 
 function Post() {
+  const action = useFormAction();
   const { register, handleSubmit, reset, formState } = useForm();
   const { errors } = formState;
 
@@ -16,7 +18,7 @@ function Post() {
   const { mutate, isLoading: isCreating } = useMutation({
     mutationFn: createPost,
     onSuccess: () => {
-      toast.success("New cabin created");
+      toast.success("New post created");
       queryClient.invalidateQueries({
         queryKey: ["post"],
       });
