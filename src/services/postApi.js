@@ -21,3 +21,13 @@ export async function getPosts() {
   }
   return data;
 }
+
+export async function deletePosts(id) {
+  const { data, error } = await supabase.from("post").delete().eq("id", id);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Post could not be deleted");
+  }
+  return data;
+}

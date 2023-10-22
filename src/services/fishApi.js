@@ -6,7 +6,7 @@ export async function getFish() {
     .select("*");
   if (error) {
     console.error(error);
-    throw new Error("Post could not be created");
+    throw new Error("Could not get the fish data");
   }
   return fishSpicies;
 }

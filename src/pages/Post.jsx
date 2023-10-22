@@ -5,14 +5,13 @@ import { createPost } from "../services/postApi";
 import toast from "react-hot-toast";
 import { getFish } from "../services/fishApi";
 import Loader from "../ui/Loader";
-import Error from "../ui/Error";
 import InputField from "../ui/Input";
-import { useFormAction } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Post() {
-  const action = useFormAction();
   const { register, handleSubmit, reset, formState } = useForm();
   const { errors } = formState;
+  const navigate = useNavigate();
 
   const queryClient = useQueryClient();
   const { mutate, isLoading: isCreating } = useMutation({
@@ -36,7 +35,7 @@ function Post() {
 
   function onSubmit(data) {
     mutate(data);
-    console.log(data);
+    navigate("/myads/all");
   }
 
   function onError(error) {
@@ -80,6 +79,21 @@ function Post() {
             </select>
           </div>
 
+          <div className="flex flex-col items-start w-full gap-2">
+            <label className="font-medium tracking-wider" htmlFor="source">
+              Weight instock
+            </label>
+            <input
+              type="text"
+              name="totalWeight"
+              placeholder="eg. 2000"
+              {...register("totalWeight", {
+                required: "This field is required",
+              })}
+              className="px-3 py-1 bg-grey font-family-inherit tracking-wider text-sm placeholder:text-green placeholder:text-sm rounded-md focus:outline-none focus:ring-1 focus:ring-green focus:scale-[1.01] transition-all duration-500 w-full sm:w-1/2"
+            />
+          </div>
+
           <InputField
             label="Minimum weight(grams)"
             error={errors?.minWeight?.message}
@@ -91,8 +105,8 @@ function Post() {
               {...register("minWeight", {
                 required: "This field is required",
                 min: {
-                  value: 500,
-                  message: "Minimum weight sold should be 500grams",
+                  value: 250,
+                  message: "Minimum weight sold should be 250grams",
                 },
               })}
               placeholder="eg.500"

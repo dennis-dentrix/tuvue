@@ -22,7 +22,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider } from "react-redux";
 import { store } from "./services/store";
-import Register from "./pages/Register";
+import Signup from "./features/user/Signup";
+import Login from "./features/user/Login";
+import { useEffect, useState } from "react";
+import supabase from "./services/Supabase";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,13 +36,25 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<AppLayout />}>
               <Route index element={<Navigate replace to="/menu" />} />

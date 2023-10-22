@@ -1,16 +1,24 @@
-import { useNavigate } from "react-router-dom";
 import { Plus } from "react-bootstrap-icons";
 import { addItem, deleteItem, getCurrentQuantityById } from "../cart/Cartslice";
 import { useDispatch, useSelector } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
+import { getFish } from "../../services/fishApi";
+import Loader from "../../ui/Loader";
 
 function ItemCard({ post }) {
-  const { id, name, weight, price, image, source } = post;
+  const { id: postId, fishId, name, weight, price, image, source } = post;
   const dispatch = useDispatch();
-  const inCart = useSelector(getCurrentQuantityById(id));
+  const inCart = useSelector(getCurrentQuantityById(postId));
+
+  const { data: fishData, isLoading } = useQuery({
+    queryKey: ["fishSpicies"],
+    queryFn: getFish,
+  });
+  console.log(fishData);
 
   function handleAddItem() {
     const newItem = {
-      itemId: id,
+      itemId: postId,
       name,
       image,
       source,
@@ -25,20 +33,29 @@ function ItemCard({ post }) {
 
   return (
     <li className="flex flex-col items-center justify-around gap-6 bg-white px-3 h-52 w-48 rounded-md">
-      <div className="flex flex-col items-center gap-4">
-        <img
-          src={post.image}
-          alt={post.name}
-          className="w-20 h-20 mx-auto bg-blend-screen rounded-full"
-        />
-        <h3>{post.name}</h3>
-      </div>
+      {!isLoading && (
+        <div className="flex flex-col items-center gap-4">
+          {fishData.map(
+            (fish) =>
+              fish.id === fishId && (
+                <img
+                  key={postId}
+                  src={fish.image}
+                  alt={fish.name}
+                  className="w-20 h-20 mx-auto bg-blend-screen rounded-full"
+                />
+              )
+          )}
+
+          <h3>{post.name}</h3>
+        </div>
+      )}
 
       <div className="flex items-center gap-2">
         {inCart ? (
           <button
             className="inline-block font-semibold transition-colors duration-300 focus:outline-none focus:ring focus:ring-offset-1 focus:ring-maroon text-grey text-sm border border-maroon rounded-md tracking-wider px-2 py-1 bg-maroon "
-            onClick={() => dispatch(deleteItem(id))}
+            onClick={() => dispatch(deleteItem(postId))}
           >
             Delete
           </button>
