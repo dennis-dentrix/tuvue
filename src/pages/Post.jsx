@@ -79,6 +79,22 @@ function Post() {
             </select>
           </div>
 
+          <div>
+            <select
+              name="category"
+              id="category"
+              className="px-3 py-1 rounded-md bg-grey tracking-wider focus:outline-none focus:ring-1 focus:ring-green w-[18vw]"
+              {...register("category")}
+            >
+              <option value="aquarium" className="focus:bg-grey">
+                Live fish(aquarium)
+              </option>
+              <option value="plate" className="focus:bg-grey">
+                For plating
+              </option>
+            </select>
+          </div>
+
           <div className="flex flex-col items-start w-full gap-2">
             <label className="font-medium tracking-wider" htmlFor="source">
               Weight instock

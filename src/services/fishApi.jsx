@@ -1,3 +1,4 @@
+import PageNotFound from "../pages/PageNotFound";
 import supabase from "./Supabase";
 
 export async function getFish() {
@@ -5,7 +6,8 @@ export async function getFish() {
     .from("fishSpicies")
     .select("*");
   if (error) {
-    console.error(error);
+    <h1>{error.message}</h1>;
+    console.error(error.message);
     throw new Error("Could not get the fish data");
   }
   return fishSpicies;

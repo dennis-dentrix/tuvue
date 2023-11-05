@@ -3,7 +3,6 @@ import { addItem, deleteItem, getCurrentQuantityById } from "../cart/Cartslice";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import { getFish } from "../../services/fishApi";
-import Loader from "../../ui/Loader";
 
 function ItemCard({ post }) {
   const { id: postId, fishId, name, weight, price, image, source } = post;
@@ -38,16 +37,16 @@ function ItemCard({ post }) {
           {fishData.map(
             (fish) =>
               fish.id === fishId && (
-                <img
-                  key={postId}
-                  src={fish.image}
-                  alt={fish.name}
-                  className="w-20 h-20 mx-auto bg-blend-screen rounded-full"
-                />
+                <div key={postId}>
+                  <img
+                    src={fish.image}
+                    alt={fish.name}
+                    className="w-20 h-20 mx-auto bg-blend-screen rounded-full"
+                  />
+                  <h3>{fish.name}</h3>
+                </div>
               )
           )}
-
-          <h3>{post.name}</h3>
         </div>
       )}
 

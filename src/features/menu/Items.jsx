@@ -12,10 +12,11 @@ function Items() {
 
   if (isLoading) return <Loader />;
   return (
-    <ul className="flex items-center gap-5">
-      {posts.map((post) => (
-        <ItemCard post={post} key={post.id} />
-      ))}
+    <ul className="flex items-center gap-5 px-3">
+      {posts.map(
+        (post) =>
+          post.category === "plate" && <ItemCard post={post} key={post.id} />
+      )}
     </ul>
   );
 }

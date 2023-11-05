@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import Aquacard from "./Aquacard";
 import Items from "./Items";
 import { ChevronRight, Water } from "react-bootstrap-icons";
+import { useQuery } from "@tanstack/react-query";
+import { getPosts } from "../../services/postApi";
+import Loader from "../../ui/Loader";
 
 function Common() {
   return (
-    <div className="my-8 py-6">
+    <div className="my-8 py-6 ">
       <div className="flex items-center justify-between pb-6 mx-4">
         <h1 className="text-xl text-black font-bold tracking-widest">
           Common fish
@@ -24,6 +27,12 @@ function Common() {
 }
 
 function Aquarium() {
+  const { data: post, isLoading } = useQuery({
+    queryKey: ["post"],
+    queryFn: getPosts,
+  });
+  if (isLoading) return <Loader />;
+
   return (
     <div className="mb-8 pb-6">
       <div className="mx-4">
@@ -34,10 +43,10 @@ function Aquarium() {
       </div>
 
       <ul className="flex items-center justify-between gap-4 ">
-        <Aquacard />
-        <Aquacard />
-        <Aquacard />
-        <Aquacard />
+        {post.map(
+          (post) =>
+            post.category === "live" && <Aquacard key={post.id} post={post} />
+        )}
       </ul>
     </div>
   );
