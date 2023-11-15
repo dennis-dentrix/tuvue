@@ -1,4 +1,3 @@
-import PageNotFound from "../pages/PageNotFound";
 import supabase from "./Supabase";
 
 export async function getFish() {

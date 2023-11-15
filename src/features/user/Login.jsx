@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import supabase from "../../services/Supabase";
 
 export default function Auth() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
+  const { emailRef, passwordRef } = useRef();
 
   const handleLogin = async (event) => {
     event.preventDefault();

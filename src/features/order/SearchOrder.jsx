@@ -8,7 +8,7 @@ function SearchOrder({ placeholder, type }) {
   //   secondary: base + " w-40 focus:w-60 sm:w-52 sm:focus:w-60 ",
   // };
   const mainStyle =
-    "flex items-center rounded-md px-3 py-1 border border-green mt-3";
+    "flex items-center rounded-md px-3 py-1 border-2 border-black mt-3";
 
   const formStyle = {
     primary: mainStyle + " w-30 ",
@@ -19,9 +19,9 @@ function SearchOrder({ placeholder, type }) {
     <form className={formStyle[type]}>
       <input
         placeholder={placeholder}
-        className="focus:outline-none w-full bg-transparent placeholder:text-black placeholder:text-italic tracking-wider rounded-sm"
+        className="focus:outline-none w-full bg-transparent placeholder:text-black placeholder:text-italic placeholder:font-medium tracking-wider rounded-sm"
       />
-      <Search className=" text-green text-lg" />
+      <Search className=" text-white text-lg" />
     </form>
   );
 }

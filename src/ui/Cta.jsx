@@ -3,9 +3,9 @@ import SearchOrder from "../features/order/SearchOrder";
 
 function Cta() {
   return (
-    <div className="bg-white px-6 py-8 rounded-md mb-8 flex flex-col sm:flex-row items-center justify-center space-x-6">
+    <div className="bg-gradient-to-r from-green via-blue-500 to-maroon bg-cover  px-6 py-8 rounded-md mb-8 flex flex-col sm:flex-row items-center text-white justify-center space-x-6 h-[80vh]">
       <div className="space-y-6">
-        <h1 className="text-[2rem] font-bold text-black ">Fresh fish</h1>
+        <h1 className="text-[2rem] font-bold text-white ">Fresh fish</h1>
 
         <p className="text-md">
           Get fish and fish products sourced around kenyan water bodies
